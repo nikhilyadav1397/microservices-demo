@@ -53,7 +53,6 @@ public class Controller {
 	@PostMapping("/customers/")
 	public ResponseEntity<Optional<Customer>> createCustomer(@RequestBody Customer customer) {
 		customerService.addCustomer(customer);
-		customer.getCustomerName();
 		return new ResponseEntity<Optional<Customer>>(customerService.findCustomerByName(customer.getCustomerName()),
 				HttpStatus.OK);
 	}
