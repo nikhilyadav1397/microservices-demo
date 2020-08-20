@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,5 +31,16 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public Optional<Customer> findCustomerByName(String customerName) {
 		return customerDao.findByCustomerName(customerName);
+	}
+
+	@Override
+	public void deleteCustomerById(String customerId) {
+		customerDao.deleteById(customerId);
+	}
+
+	@Override
+	public void addCustomer(Customer customer) {
+		customer.setCustomerId(UUID.randomUUID().toString());
+		customerDao.save(customer);
 	}
 }

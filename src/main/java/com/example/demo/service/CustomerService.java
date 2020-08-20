@@ -8,4 +8,6 @@ public interface CustomerService {
 	public Iterable<Customer> getAllCustomer();
 	public Optional<Customer> findCustomerById(String customerId);
 	public Optional<Customer> findCustomerByName(String customerName);
+	public void deleteCustomerById(String customerId);
+	public void addCustomer(Customer customer);
 }
